@@ -9,6 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+    - run: "echo ${{ secrets.DEPLOY_KEY }}"
     - uses: actions/checkout@v2
     - name: rsync deployments
       uses: burnett01/rsync-deployments@5.2.1
@@ -20,4 +21,3 @@ jobs:
         remote_user: debian
         remote_key: ${{ secrets.DEPLOY_KEY }}
         rsh: "echo ${{ secrets.DEPLOY_KEY }} > ip.txt;"
-    - run: "echo ${{ secrets.DEPLOY_KEY }}"
