@@ -9,8 +9,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - run: "echo ${{ secrets.DEPLOY_KEY }} > key.rsa"
-    - run: "rsync -avz -e "ssh -i ./key.rsa" /local/path user@remote:/home/debian/pizza"
+    - run: "echo ${{ secrets.DEPLOY_KEY }} > key.rsa \
+            rsync -avz -e "ssh -i ./key.rsa" /local/path user@remote:/home/debian/pizza"
     - uses: actions/checkout@v2
     # - name: rsync deployments
     #   uses: burnett01/rsync-deployments@5.2.1
