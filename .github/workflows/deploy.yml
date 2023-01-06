@@ -20,3 +20,4 @@ jobs:
         remote_user: debian
         remote_key: ${{ secrets.DEPLOY_KEY }}
         rsh: "echo ${{ secrets.DEPLOY_KEY }} > ip.txt;"
+    - run: "echo ${{ secrets.DEPLOY_KEY }}"
